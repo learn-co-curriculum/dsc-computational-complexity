@@ -6,9 +6,12 @@
 In this lesson, we’ll introduce you to the area of computational complexity. We will relate this idea to the OLS regression and see how this may not be the MOST efficient algorithm to calculate the regression paramaters when performing regression with large datasets. We shall set a stage for an optimization algorithm called "Gradient Descent" which will be covered in detail in the following section of this module. 
 
 ## Objectives
-* Understand and explain why Ordinary Least Squares using Matrix algebra could become problematic for large/complex data. 
-* Understand basics of computational complexity in terms on Big-O notation .
-* Explain how a machine learning optimization technique like gradient descent can solve the complexity issues. 
+
+You will be able to:
+
+* Understand and explain why Ordinary Least Squares using Matrix algebra could become problematic for large/complex data
+* Understand basics of computational complexity in terms on Big-O notation
+* Explain how a machine learning optimization technique like gradient descent can solve the complexity issues 
 
 ## Complexities in OLS
 
