@@ -64,7 +64,7 @@ The matrix inversion of a (k x k) matrix takes O(k^3) time
 The final matrix multiplication of two (k x k) matrices takes O(k^3) time
 
 ```
-#### So the Big-O running time for OLS is **O(k<sup>2*(n + k)</sup>).** NOW THATS EXPENSIVE.
+#### So the Big-O running time for OLS is O(k<sup>2*(n + k)</sup>) - NOW THATS EXPENSIVE.
 
 #### If the X is ill conditioned  i.e. it isnt a square matrix etc., then it will create computational errors in estimation. 
 
