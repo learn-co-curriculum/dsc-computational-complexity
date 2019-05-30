@@ -49,7 +49,8 @@ Different algorithms have different run-times. That is, algorithms grow at diffe
 * $O(n!)$
 
 This can be shown in following figure:
-<img src="images/bigo.jpeg" width ="500">
+
+<img src="images/big_o.png" width ="500">
 
 ### OLS and Big-O Notation
 
@@ -74,7 +75,8 @@ Another common problem is overfitting and underfitting in estimation of regressi
 So, this leads us to the Gradient Descent kind of optimization algorithm which can save us from this type of problem. The main reason why gradient descent is used for linear regression is the computational complexity: it's computationally cheaper (faster) to find the solution using the gradient descent in most cases. 
 
 ## Gradient Descent 
-<img src="images/grad.png" width ="550">
+
+<img src="images/gradient_descent.png" width ="850">
 
 
 > Gradient Descent is an iterative approach to minimize the model loss (error), used while training a machine learning model like linear regression. It is an optimization algorithm based on a convex function as shown in the figure above, that tweaks its parameters iteratively to minimize a given function to its local minimum.
