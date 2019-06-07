@@ -56,7 +56,7 @@ This can be shown in following figure:
 
 Inverting a matrix costs $O(n^3)$ for computation where n is the number of rows in $X$ matrix i.e. the observations. Here is an explanation on how to calculate Big-O for OLS.
 
-OLD linear regression is computed as $(\boldsymbol{X}^T\boldsymbol{X})^{-1}\boldsymbol{X}^T y$.
+OLS linear regression is computed as $(\boldsymbol{X}^T\boldsymbol{X})^{-1}\boldsymbol{X}^T y$.
 
 
 If $\boldsymbol{X}$ is an $(n \times k)$ matrix:
