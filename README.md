@@ -43,12 +43,10 @@ Different algorithms have different run-times. That is, algorithms grow at diffe
 
 * $O(\log n)$: aka $\log$ time
 * $O(n)$: aka linear time
-* $O(n \log n)$
 * $O(n^2)$
 * $O(n^3)$
-* $O(n!)$
 
-This can be shown in following figure:
+These rates, as well as some other rates, can be visualized in following figure:
 
 <img src="images/big_o.png" width ="500">
 
