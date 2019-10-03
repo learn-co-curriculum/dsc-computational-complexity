@@ -9,9 +9,9 @@ In this lesson, you’ll be introduced to the area of computational complexity. 
 
 You will be able to:
 
-* Understand and explain why Ordinary Least Squares using Matrix algebra could become problematic for large/complex data
-* Understand the basics of computational complexity in terms of Big-O notation
-* Explain how a machine learning optimization technique like gradient descent can solve the complexity issues 
+- Understand and explain why Ordinary Least Squares using Matrix algebra could become problematic for large/complex data
+- Understand the basics of computational complexity in terms of Big-O notation
+- Explain how a machine learning optimization technique like gradient descent can solve the complexity issues 
 
 ## Complexities in OLS
 
