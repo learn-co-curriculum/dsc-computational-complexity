@@ -3,14 +3,14 @@
 
 ## Introduction
 
-In this lesson, you’ll be introduced to the area of computational complexity. You'll learn about this idea in relationship with OLS regression and see how this may not be the _most_ efficient algorithm to calculate the regression paramaters when performing regression with large datasets. You'll set a stage for an optimization algorithm called "Gradient Descent" which will be covered in detail later. 
+In this lesson, you’ll be introduced to the area of computational complexity. You'll learn about this idea in a relationship with OLS regression and see how this may not be the most efficient algorithm to calculate the regression parameters when performing regression with large datasets. You'll set a stage for an optimization algorithm called "Gradient Descent" which will be covered in detail later. 
 
 ## Objectives
 
 You will be able to:
 
 * Understand and explain why Ordinary Least Squares using Matrix algebra could become problematic for large/complex data
-* Understand basics of computational complexity in terms on Big-O notation
+* Understand the basics of computational complexity in terms of Big-O notation
 * Explain how a machine learning optimization technique like gradient descent can solve the complexity issues 
 
 ## Complexities in OLS
@@ -20,7 +20,7 @@ Recall the OLS formula for calculating the beta vector:
 $ \beta =(\boldsymbol{X}^T\boldsymbol{X})^{-1}\boldsymbol{X}^T y$
 
 
-This formula looks very simple, elegant and intuitive. It works perfectly fine for the case of simple linear regression due to limited number of computed dimensions, but with datasets that are very large or **big data** sets, it becomes computationally very expensive as it can potentially involve a huge number complex mathematical operations. 
+This formula looks very simple, elegant and intuitive. It works perfectly fine for the case of simple linear regression due to a limited number of computed dimensions, but with datasets that are very large or **big data** sets, it becomes computationally very expensive as it can potentially involve a huge number of complex mathematical operations.
 
 For this formula, we need to find $(\boldsymbol{X}^T\boldsymbol{X})$, and invert it as well, which makes it very expensive. Imagine is matrix $X_{(N \times M+1)}$ has $(M+1)$ columns where $M$ is the number of predictors and $N$ is the number of rows of observations. In machine learning, you will often find datasets with $M >1000$ and $N > 1,000,000$. The $(\boldsymbol{X}^T\boldsymbol{X})$ matrix itself takes a while to calculate, then you have to invert an $M×M$ matrix which adds more to the complexity - making it hugely expensive. You'll also come across situations where the input matrix grows so large that it cannot fit into your computer's memory. 
 
@@ -35,7 +35,7 @@ At best, your target's name is at the front of the list and you only need to nee
 
 In this case, the algorithm is a simple search. Big O notation allows you to describe what our worst case is. The worst case is that you will have to search through all elements ($n$) in the phone book. You can describe the run-time as:
 
-**$O(n)$ where $n$ is number of operations**
+**$O(n)$ where $n$ is the number of operations**
 
 Because the maximum number of operations is equal to the maximum number of elements in our phone book, we say the Big $O$ of a simple search is $O(n)$. **A simple search will never be slower than $O(n)$ time.**
 
@@ -46,13 +46,13 @@ Different algorithms have different run-times. That is, algorithms grow at diffe
 * $O(n^2)$
 * $O(n^3)$
 
-These rates, as well as some other rates, can be visualized in following figure:
+These rates, as well as some other rates, can be visualized in the following figure:
 
 <img src="images/big_o.png" width ="500">
 
 ### OLS and Big-O Notation
 
-Inverting a matrix costs $O(n^3)$ for computation where n is the number of rows in $X$ matrix i.e. the observations. Here is an explanation on how to calculate Big-O for OLS.
+Inverting a matrix costs $O(n^3)$ for computation where n is the number of rows in $X$ matrix i.e. the observations. Here is an explanation of how to calculate Big-O for OLS.
 
 OLS linear regression is computed as $(\boldsymbol{X}^T\boldsymbol{X})^{-1}\boldsymbol{X}^T y$.
 
