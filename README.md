@@ -17,14 +17,13 @@ You will be able to:
 
 Recall the OLS formula for calculating the beta vector:
 
-$ \beta =(\boldsymbol{X}^T\boldsymbol{X})^{-1}\boldsymbol{X}^T y$
-
+ <img src="https://render.githubusercontent.com/render/math?math=\beta =(X^TX)^{-1}X^T y"> 
 
 This formula looks very simple, elegant, and intuitive. It works perfectly fine for the case of simple linear regression due to a limited number of computed dimensions, but with datasets that are very large or **big data** sets, it becomes computationally very expensive as it can potentially involve a huge number of complex mathematical operations.
 
-For this formula, we need to find $(\boldsymbol{X}^T\boldsymbol{X})$, and invert it as well, which makes it very expensive. Imagine the matrix $X_{(N \times M+1)}$ has $(M+1)$ columns where $M$ is the number of predictors and $N$ is the number of rows of observations. In machine learning, you will often find datasets with $M >1000$ and $N > 1,000,000$. The $(\boldsymbol{X}^T\boldsymbol{X})$ matrix itself takes a while to calculate, then you have to invert an $M×M$ matrix which adds more to the complexity - making it very expensive. You'll also come across situations where the input matrix grows so large that it cannot fit into your computer's memory. 
+For this formula, we need to find  <img src="https://render.githubusercontent.com/render/math?math=(X^TX)"> , and invert it as well, which makes it very expensive. Imagine the matrix  <img src="https://render.githubusercontent.com/render/math?math=X_{(N \times M%2b1)}"> has  <img src="https://render.githubusercontent.com/render/math?math=(M%2b1)"> columns where  <img src="https://render.githubusercontent.com/render/math?math=M"> is the number of predictors and  <img src="https://render.githubusercontent.com/render/math?math=N"> is the number of rows of observations. In machine learning, you will often find datasets with  <img src="https://render.githubusercontent.com/render/math?math=M >1000"> and  <img src="https://render.githubusercontent.com/render/math?math=N > 1,000,000"> . The  <img src="https://render.githubusercontent.com/render/math?math=(X^TX)"> matrix itself takes a while to calculate, then you have to invert an  <img src="https://render.githubusercontent.com/render/math?math=M×M"> matrix which adds more to the complexity - making it very expensive. You'll also come across situations where the input matrix grows so large that it cannot fit into your computer's memory. 
 
-## The Big O notation
+## The Big O Notation
 
 In computer science, Big O notation is used to describe how "fast" an algorithm grows, by comparing the number of operations within the algorithm. Big O notation helps you see the worst-case scenario for an algorithm. Typically, we are most concerned with the Big O time because we are interested in how slowly a given algorithm will possibly run at worst.
 
@@ -33,18 +32,18 @@ Imagine you need to find a person you only know the name of. What's the most str
 
 At best, your target's name is at the front of the list and you only need to need to check the first item. At worst, your target's name is at the very end of the phone book and you will need to have searched all 10,000 names. As the "dataset" (or the phone book) increases in size, the maximum time it takes to run a simple search also linearly increases.
 
-Big O notation allows you to describe what the worst case is. The worst case is that you will have to search through all elements ($n$) in the phone book. You can describe the run-time as:
+Big O notation allows you to describe what the worst case is. The worst case is that you will have to search through all elements ( <img src="https://render.githubusercontent.com/render/math?math=n"> ) in the phone book. You can describe the run-time as:
 
-**$O(n)$ where $n$ is the number of operations**
+**<img src="https://render.githubusercontent.com/render/math?math=O(n)"> where  <img src="https://render.githubusercontent.com/render/math?math=n"> is the number of operations**
 
-Because the maximum number of operations is equal to the maximum number of elements in our phone book, we say the Big $O$ of a simple search is $O(n)$. **A simple search will never be slower than $O(n)$ time.**
+Because the maximum number of operations is equal to the maximum number of elements in our phone book, we say the Big  <img src="https://render.githubusercontent.com/render/math?math=O"> of a simple search is  <img src="https://render.githubusercontent.com/render/math?math=O(n)"> . **A simple search will never be slower than  <img src="https://render.githubusercontent.com/render/math?math=O(n)"> time.**
 
 Different algorithms have different run-times. That is, algorithms grow at different rates. The most common Big O run-times, from fastest to slowest, are:
 
-* $O(\log n)$: aka $\log$ time
-* $O(n)$: aka linear time
-* $O(n^2)$
-* $O(n^3)$
+*  <img src="https://render.githubusercontent.com/render/math?math=O(\log n)"> : aka  <img src="https://render.githubusercontent.com/render/math?math=\log"> time
+*  <img src="https://render.githubusercontent.com/render/math?math=O(n)"> : aka linear time
+*  <img src="https://render.githubusercontent.com/render/math?math=O(n^2)"> 
+*  <img src="https://render.githubusercontent.com/render/math?math=O(n^3)"> 
 
 These rates, as well as some other rates, can be visualized in the following figure:
 
@@ -52,22 +51,22 @@ These rates, as well as some other rates, can be visualized in the following fig
 
 ### OLS and Big O notation
 
-Inverting a matrix costs $O(n^3)$ for computation where n is the number of rows in $X$ matrix, i.e., the observations. Here is an explanation of how to calculate Big O for OLS.
+Inverting a matrix costs  <img src="https://render.githubusercontent.com/render/math?math=O(n^3)"> for computation where n is the number of rows in  <img src="https://render.githubusercontent.com/render/math?math=X"> matrix, i.e., the observations. Here is an explanation of how to calculate Big O for OLS.
 
-OLS linear regression is computed as $(\boldsymbol{X}^T\boldsymbol{X})^{-1}\boldsymbol{X}^T y$.
-
-
-If $\boldsymbol{X}$ is an $(n \times k)$ matrix:
-
-- $(\boldsymbol{X}^T\boldsymbol{X})$ takes $O(n*k^2)$ time and produces a $(k \times k)$ matrix
-- The matrix inversion of a (k x k) matrix takes $O(k^3)$ time
-- $(\boldsymbol{X}^T\boldsymbol{Y})$ takes $O(n*k^2)$ time and produces a $(k \times k)$ matrix
-- The final matrix multiplication of two $(k \times k)$ matrices takes $O(k^3)$ time
+OLS linear regression is computed as  <img src="https://render.githubusercontent.com/render/math?math=(X^TX)^{-1}X^T y"> .
 
 
-** So the Big O running time for OLS is $O(k^{2*(n + k)})$ - which is pretty expensive **
+If  <img src="https://render.githubusercontent.com/render/math?math=X"> is an  <img src="https://render.githubusercontent.com/render/math?math=(n \times k)"> matrix:
 
-Moreover, if  $X$ is ill-conditioned  (i.e. it isn't a square matrix), there will be computational errors in the estimation. 
+-  <img src="https://render.githubusercontent.com/render/math?math=(X^TX)"> takes  <img src="https://render.githubusercontent.com/render/math?math=O(n*k^2)"> time and produces a  <img src="https://render.githubusercontent.com/render/math?math=(k \times k)"> matrix
+- The matrix inversion of a (k x k) matrix takes  <img src="https://render.githubusercontent.com/render/math?math=O(k^3)"> time
+-  <img src="https://render.githubusercontent.com/render/math?math=(X^TY)"> takes  <img src="https://render.githubusercontent.com/render/math?math=O(n*k^2)"> time and produces a  <img src="https://render.githubusercontent.com/render/math?math=(k \times k)"> matrix
+- The final matrix multiplication of two  <img src="https://render.githubusercontent.com/render/math?math=(k \times k)"> matrices takes  <img src="https://render.githubusercontent.com/render/math?math=O(k^3)"> time
+
+
+**So the Big O running time for OLS is  <img src="https://render.githubusercontent.com/render/math?math=O(k^{2*(n %2b k)})"> - which is pretty expensive**
+
+Moreover, if   <img src="https://render.githubusercontent.com/render/math?math=X"> is ill-conditioned  (i.e. it isn't a square matrix), there will be computational errors in the estimation. 
 Another common problem is overfitting and underfitting in estimation of regression coefficients.
 
 So, this leads us to the gradient descent kind of optimization algorithm which can save us from this type of problem. The main reason why gradient descent is used for linear regression is the computational complexity: it's computationally cheaper (faster) to find the solution using the gradient descent in most cases. 
@@ -79,7 +78,7 @@ So, this leads us to the gradient descent kind of optimization algorithm which c
 
 > Gradient Descent is an iterative approach to minimize the model loss (error), used while training a machine learning model like linear regression. It is an optimization algorithm based on a convex function as shown in the figure above, that tweaks its parameters iteratively to minimize a given function to its local minimum.
 
-In regression, it is used to find the values of model parameters (coefficients, or the $\beta$ matrix) that minimize a cost function (like RMSE) as far as possible.
+In regression, it is used to find the values of model parameters (coefficients, or the  <img src="https://render.githubusercontent.com/render/math?math=\beta"> matrix) that minimize a cost function (like RMSE) as far as possible.
 
 In order to fully understand how this works, you need to know what a gradient is and how is it calculated. And for this, you would need some Calculus. It may sound a bit intimidating at this stage, but don't worry. The next few sections will introduce you to the basics of calculus with gradients and derivatives. 
 
