@@ -1,9 +1,8 @@
-
 # Computational Complexity: From OLS to Gradient Descent
 
 ## Introduction
 
-In this lesson, you’ll be introduced to computational complexity. You'll learn about this idea in relationship with OLS regression and see how this may not be the most efficient algorithm to calculate the regression parameters when performing regression with large datasets. You'll set the stage for an optimization algorithm called "Gradient Descent" which will be covered in detail later. 
+In this lesson, you'll be introduced to computational complexity. You'll learn about this idea in relationship with OLS regression and see how this may not be the most efficient algorithm to calculate the regression parameters when performing regression with large datasets. You'll set the stage for an optimization algorithm called "Gradient Descent" which will be covered in detail later. 
 
 ## Objectives
 
@@ -19,16 +18,16 @@ Recall the OLS formula for calculating the beta vector:
 
 $ \beta =(\boldsymbol{X}^T\boldsymbol{X})^{-1}\boldsymbol{X}^T y$
 
-
 This formula looks very simple, elegant, and intuitive. It works perfectly fine for the case of simple linear regression due to a limited number of computed dimensions, but with datasets that are very large or **big data** sets, it becomes computationally very expensive as it can potentially involve a huge number of complex mathematical operations.
 
-For this formula, we need to find $(\boldsymbol{X}^T\boldsymbol{X})$, and invert it as well, which makes it very expensive. Imagine the matrix $X_{(N \times M+1)}$ has $(M+1)$ columns where $M$ is the number of predictors and $N$ is the number of rows of observations. In machine learning, you will often find datasets with $M >1000$ and $N > 1,000,000$. The $(\boldsymbol{X}^T\boldsymbol{X})$ matrix itself takes a while to calculate, then you have to invert an $M×M$ matrix which adds more to the complexity - making it very expensive. You'll also come across situations where the input matrix grows so large that it cannot fit into your computer's memory. 
+For this formula, we need to find $(\boldsymbol{X}^T\boldsymbol{X})$, and invert it as well, which makes it very expensive. Imagine the matrix $X_{(N \times M+1)}$ has $(M+1)$ columns where $M$ is the number of predictors and $N$ is the number of rows of observations. In machine learning, you will often find datasets with $M >1000$ and $N > 1,000,000$. The $(\boldsymbol{X}^T\boldsymbol{X})$ matrix itself takes a while to calculate, then you have to invert an $M \times M$ matrix which adds more to the complexity - making it very expensive. You'll also come across situations where the input matrix grows so large that it cannot fit into your computer's memory. 
 
 ## The Big O notation
 
 In computer science, Big O notation is used to describe how "fast" an algorithm grows, by comparing the number of operations within the algorithm. Big O notation helps you see the worst-case scenario for an algorithm. Typically, we are most concerned with the Big O time because we are interested in how slowly a given algorithm will possibly run at worst.
 
 #### Example
+
 Imagine you need to find a person you only know the name of. What's the most straightforward way of finding this person? Well, you could go through every single name in the phone book until you find your target. This is known as a simple search. If the phone book is not very long, with say, only 10 names, this is a fairly fast process. But what if there are 10,000 names in the phone book?
 
 At best, your target's name is at the front of the list and you only need to need to check the first item. At worst, your target's name is at the very end of the phone book and you will need to have searched all 10,000 names. As the "dataset" (or the phone book) increases in size, the maximum time it takes to run a simple search also linearly increases.
@@ -48,7 +47,7 @@ Different algorithms have different run-times. That is, algorithms grow at diffe
 
 These rates, as well as some other rates, can be visualized in the following figure:
 
-<img src="images/big_o.png" width ="500">
+<img src="https://raw.githubusercontent.com/learn-co-curriculum/dsc-computational-complexity/master/images/big_o.png" width ="500">
 
 ### OLS and Big O notation
 
@@ -56,14 +55,12 @@ Inverting a matrix costs $O(n^3)$ for computation where n is the number of rows 
 
 OLS linear regression is computed as $(\boldsymbol{X}^T\boldsymbol{X})^{-1}\boldsymbol{X}^T y$.
 
-
 If $\boldsymbol{X}$ is an $(n \times k)$ matrix:
 
 - $(\boldsymbol{X}^T\boldsymbol{X})$ takes $O(n*k^2)$ time and produces a $(k \times k)$ matrix
 - The matrix inversion of a (k x k) matrix takes $O(k^3)$ time
 - $(\boldsymbol{X}^T\boldsymbol{Y})$ takes $O(n*k^2)$ time and produces a $(k \times k)$ matrix
 - The final matrix multiplication of two $(k \times k)$ matrices takes $O(k^3)$ time
-
 
 ** So the Big O running time for OLS is $O(k^{2*(n + k)})$ - which is pretty expensive **
 
@@ -74,8 +71,7 @@ So, this leads us to the gradient descent kind of optimization algorithm which c
 
 ## Gradient Descent 
 
-<img src="images/gradient_descent.png" width ="850">
-
+<img src="https://raw.githubusercontent.com/learn-co-curriculum/dsc-computational-complexity/master/images/gradient_descent.png" width ="850">
 
 > Gradient Descent is an iterative approach to minimize the model loss (error), used while training a machine learning model like linear regression. It is an optimization algorithm based on a convex function as shown in the figure above, that tweaks its parameters iteratively to minimize a given function to its local minimum.
 
@@ -88,9 +84,6 @@ In order to fully understand how this works, you need to know what a gradient is
 - [Wiki: Computational complexity of mathematical operations](https://en.wikipedia.org/wiki/Computational_complexity_of_mathematical_operations)
 
 - [Simplified Big O notation](https://medium.com/karuna-sehgal/a-simplified-explanation-of-the-big-o-notation-82523585e835)
-
-- [Gradient descent in a nutshell](https://towardsdatascience.com/gradient-descent-in-a-nutshell-eaf8c18212f0)
-
 
 ## Summary 
 
